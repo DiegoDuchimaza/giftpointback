@@ -1,9 +1,9 @@
 const db = require("./db");
 
-const create = (name, callback) => {
+const create = (name,lastname,email,password, callback) => {
   const sql = `INSERT INTO users (name, lastname, email, password) VALUES (?,?,?,?)`;
 
-  db.run(sql, [name], function (error) {
+  db.run(sql, [name,lastname,email,password], function (error) {
     if (error) {
       return callback(error);
     }
