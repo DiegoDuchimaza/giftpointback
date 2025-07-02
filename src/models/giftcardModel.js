@@ -1,9 +1,9 @@
-const db = require("./db");
+const db = require("../configs/db");
 
-const create = (name, callback) => {
-  const sql = `INSERT INTO giftcards (title,amount,currency,expirationDate,balance) VALUES (?,?,?,?,?)`;
-
-  db.run(sql, [name], function (error) {
+const create = (product, callback) => {
+  const { title, amount, currency, expirationDate, balance, user_id } = product;
+  const sql = `INSERT INTO giftcards (title,amount,currency,expirationDate,balance,user_id) VALUES (?,?,?,?,?,?)`;
+  db.run(sql, [title,amount, currency, expirationDate, balance, user_id], function (error) {
     if (error) {
       return callback(error);
     }
@@ -36,10 +36,10 @@ const findById = (id, callback) => {
   });
 };
 
-const update = (id, balance, expirationDate, callback) => {
-  const sql = `UPDATE giftcards SET (balance = ?, expirationDate = ?) WHERE id = ?`;
+const update = (id, balance, expirationDate,user_id , callback) => {
+  const sql = `UPDATE giftcards SET balance = ?, expirationDate = ? WHERE id = ? AND user_id = ?`;
 
-  db.run(sql, [balance,expirationDate, id], function (error) {
+  db.run(sql, [balance,expirationDate, id, user_id], function (error) {
     if (error) {
       return callback(error);
     }

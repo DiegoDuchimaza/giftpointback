@@ -22,7 +22,8 @@ const db = new sqlite.Database(
             amount INTEGER,
             currency VARCHAR(100) NOT NULL,
             expirationDate VARCHAR(100) NOT NULL,
-            balance REAL
+            balance REAL,
+            user_id INTEGER
         )`;
 
     db.run(users, (error) => {

@@ -3,7 +3,6 @@ const app = express();
 const authRoutes = require('./routes/authRoutes');
 const productRoutes = require('./routes/giftcardRoutes');
 const responseTimeLogger = require('./middlewares/timerLoggerMiddleware');
-
 require('dotenv').config();
 
 app.use(express.json());

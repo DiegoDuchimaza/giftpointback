@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const userModel = require('../models/userModel');
-const JWT_SECRET = process.env.JWT_SECRET;
 
 const register = (req, res) => {
   const { name, lastname, email, password } = req.body;
@@ -16,12 +15,12 @@ const register = (req, res) => {
 const login = (req, res) => {
   const { email, password } = req.body;
 
-  userModel.findUserByUsername(email, function (err, user) {
+  userModel.findUserByEmail(email, function (err, user) {
     if (!user || !bcrypt.compareSync(password, user.password)) {
       return res.status(401).json({ error: 'Credenciales inválidas' });
     }
 
-    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '1h' });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
   });
 };

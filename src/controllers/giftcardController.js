@@ -1,7 +1,21 @@
 const productModel = require('../models/giftcardModel');
 
 const createProduct = (req, res) => {
-  const product = req.body;
+ const { title,amount, currency, expirationDate, balance } = req.body;
+
+  if (!title || !amount || !currency || expirationDate || balance) {
+    return res.status(400).json({ error: 'Faltan datos de la tarjeta' });
+  }
+
+  const product = {
+    title,
+    amount,
+    currency,
+    expirationDate,
+    balance,
+    user_id: req.userId 
+  };
+
   productModel.create(product, (err) => {
     if (err) return res.status(500).json({ error: 'Error al crear una tarjeta de regalo' });
     res.status(201).json({ message: 'Tarjeta de regalo creada' });
