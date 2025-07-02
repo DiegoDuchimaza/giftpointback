@@ -10,6 +10,6 @@ app.use(express.json());
 app.use(responseTimeLogger);
 
 app.use('/api/auth', authRoutes);
-app.use('/api/giftcards', productRoutes);
+productRoutes(app);
 
 module.exports = app;

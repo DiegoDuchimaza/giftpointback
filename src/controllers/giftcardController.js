@@ -25,7 +25,7 @@ const createProduct = (req, res) => {
 const getProducts = (req, res) => {
   productModel.findAll((err, products) => {
     if (err) return res.status(500).json({ error: 'Error al obtener lista de tarjetas' });
-    res.json(products);
+    res.status(200).json(products);
   });
 };
 

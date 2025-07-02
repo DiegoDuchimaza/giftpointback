@@ -9,4 +9,4 @@ router.post('/', authMiddleware, productController.createProduct);
 router.patch('/:id', authMiddleware, productController.updateProduct);
 router.delete('/:id', authMiddleware, productController.deleteProduct);
 
-module.exports = router;
+module.exports = (app) => app.use("/api/giftcards", router);
