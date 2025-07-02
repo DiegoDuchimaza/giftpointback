@@ -25,8 +25,7 @@ const getProductDetail = (req, res) => {
 
 const updateProduct = (req, res) => {
   const id = req.params.id;
-  const balance = req.params.balance;
-  const expirationDate = req.params.expirationDate;
+   const { balance, expirationDate } = req.body;
 
   productModel.update(id,balance,expirationDate, (err, product) => {
     if (err || !product) return res.status(500).json({ error: 'Error al actualizar la información de la tarjeta' });
