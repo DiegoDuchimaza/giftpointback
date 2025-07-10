@@ -4,6 +4,10 @@ const userModel = require('../models/userModel');
 
 const register = (req, res) => {
   const { name, lastname, email, password } = req.body;
+
+  if (!name || !lastname || !email || !password) {
+    return res.status(400).json({ error: 'Faltan datos para el registro' });
+  }
   const hashedPassword = bcrypt.hashSync(password, 8);
 
   userModel.create(name, lastname, email, hashedPassword, function (err) {

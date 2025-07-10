@@ -12,4 +12,14 @@ app.use(responseTimeLogger);
 app.use('/api/auth', authRoutes);
 productRoutes(app);
 
+const cors = require('cors');
+app.use(cors());
+
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+
 module.exports = app;
