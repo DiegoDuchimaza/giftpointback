@@ -66,3 +66,8 @@ ngrok http 3000
 ### 7. En la plataforma de FlutterFlow, en el proyecto de giftCars, en la sección de Api Calls, en la ruta raíz, en la parte de Api Base URL pegar o reemplazar la ruta copiada anteriormente sin olvidar que al final debe quedar concatenado /api, debe quedar algo asi
 <img width="1729" height="669" alt="image" src="https://github.com/user-attachments/assets/535a4352-875f-4fdb-af58-12b02dd99ba6" />
 ### 8. Guardar los cambios y ejecutar la aplicación, ya debe poder interactuar con la app correctamente.
+
+## NOTA
+### Mi aplicación del back cuenta con un middleware que se encarga de autenticar todas las peticiones necesarias con el token de acceso.
+### En la consola se imprime también el tiempo de respuesta de cada peticón que se realice.
+### En el back se han implementado las consultas API Rest Full con POST, GET, PATCH y DELETE, ya que éstas tambien se han implementado para los tests, pero hubo un problema para las llamadas GET desde FLUTTERFLOW, por eso es que he agregado dos endpoints POST para poder llamarlp desde flutterFlow, esto lo hice ya que estamos trabajando en pruebas, pero para producción debería llamar correctamente a los endpoints GET.
