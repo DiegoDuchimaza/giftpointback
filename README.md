@@ -62,7 +62,10 @@ ngrok http 3000
 ### 5. Se abrirá una ventana de cmd con un texto similar a esto
 <img width="841" height="312" alt="image" src="https://github.com/user-attachments/assets/139871ab-390f-495b-bbb0-ed270b23bdf6" />
 
-### 6. Se debe copiar la ruta que dice Forwarding, en mi caso es esta ruta: https://15c3f2d771ce.ngrok-free.app, cada uno debe copiar la ruta que le de su cmd, la ruta siempre varía cada vez que se ejecute de nuevo.
+### 6. Se debe copiar la ruta que dice Forwarding, en mi caso es esta ruta: https://15c3f2d771ce.ngrok-free.app, cada uno debe copiar la ruta que le de su cmd, la ruta siempre varía cada vez que se ejecute de nuevo. Ademas es necesario que el proyecto se ejecute localmente, por ello es necesario tambien ejecutrar la siguiente linea de codigo
+```
+npm start
+```
 ### 7. En la plataforma de FlutterFlow, en el proyecto de giftCars, en la sección de Api Calls, en la ruta raíz, en la parte de Api Base URL pegar o reemplazar la ruta copiada anteriormente sin olvidar que al final debe quedar concatenado /api, debe quedar algo asi
 <img width="1729" height="669" alt="image" src="https://github.com/user-attachments/assets/535a4352-875f-4fdb-af58-12b02dd99ba6" />
 ### 8. Guardar los cambios y ejecutar la aplicación, ya debe poder interactuar con la app correctamente.
