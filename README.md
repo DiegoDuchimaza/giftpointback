@@ -67,6 +67,17 @@ ngrok http 3000
 <img width="1729" height="669" alt="image" src="https://github.com/user-attachments/assets/535a4352-875f-4fdb-af58-12b02dd99ba6" />
 ### 8. Guardar los cambios y ejecutar la aplicación, ya debe poder interactuar con la app correctamente.
 
+## DATOS PARA PRUEBAS
+
+```
+Usuario: duchimazadiego68@gmail.com
+Clave: Prueba1.
+
+Usuario: pablo@gmail.com
+Clave: Pablo1.
+
+```
+
 ## NOTA
 ### Mi aplicación del back cuenta con un middleware que se encarga de autenticar todas las peticiones necesarias con el token de acceso.
 ### En la consola se imprime también el tiempo de respuesta de cada peticón que se realice.
