@@ -23,7 +23,11 @@ Servidor corriendo en http://localhost:3000
 ```
 
 ## NOTA  
-La version de node con la que estoy trabajando es la v22.17.0 y las versiones de los paquetes instalados se puede revisar en el archivo package.json
+La version de node con la que estoy trabajando es la v22.17.0 y las versiones de los paquetes instalados se puede revisar en el archivo package.json  
+También es importante revisar que mi base de datos en sqlite3 esté en el proyecto, por ello hay que ir a la ruta \src\configs y verificar que exista el archivo database.db. En el caso de no existir, desde la raíz del proyecto se deberá ejecutar la siguiente líena para crear el archivo de base de datos
+```
+node .\src\configs\db.js
+```
 
 ## PRUEBAS UNITARIAS
 
@@ -42,3 +46,23 @@ Snapshots:   0 total
 Time:        1.271 s, estimated 2 s
 ```
 ### indicando que las pruebas se hicieron correctamente
+
+### LEVANTAR SERVICIO APIRESTFULL PARA FLUTTERFLOW
+
+### 1. Para poder llamar a mis endpoint locales desde la plataforma de flutterFlow, tuve que utilizar NGROk, el cual es un servicio que nos permite crear nuestro servidor local en un subdominio para poder visualizarlo fuera de la LAN. Entonces, lo primero que se hace es crear una cuenta en el siguiente enlace https://dashboard.ngrok.com.
+### 2. Luego copiar el authtoken que me da en la siguiente ruta https://dashboard.ngrok.com/get-started/your-authtoken.
+### 3. En la raíz de mi proyecto ejecutar la siguiente línea
+```
+ngrok config add-authtoken TU_AUTHTOKEN
+```
+### 4. También ejecutar esta línea
+```
+ngrok http 3000
+```
+### 5. Se abrirá una ventana de cmd con un texto similar a esto
+<img width="841" height="312" alt="image" src="https://github.com/user-attachments/assets/139871ab-390f-495b-bbb0-ed270b23bdf6" />
+
+### 6. Se debe copiar la ruta que dice Forwarding, en mi caso es esta ruta: https://15c3f2d771ce.ngrok-free.app, cada uno debe copiar la ruta que le de su cmd, la ruta siempre varía cada vez que se ejecute de nuevo.
+### 7. En la plataforma de FlutterFlow, en el proyecto de giftCars, en la sección de Api Calls, en la ruta raíz, en la parte de Api Base URL pegar o reemplazar la ruta copiada anteriormente sin olvidar que al final debe quedar concatenado /api, debe quedar algo asi
+<img width="1729" height="669" alt="image" src="https://github.com/user-attachments/assets/535a4352-875f-4fdb-af58-12b02dd99ba6" />
+### 8. Guardar los cambios y ejecutar la aplicación, ya debe poder interactuar con la app correctamente.
