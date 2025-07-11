@@ -17,7 +17,7 @@ describe('Giftcard Routes', () => {
   it('debería devolver 200 con token válido', async () => {
     const res = await request
       .get('/api/giftcards')
-      .set('Authorization', `Bearer ${token}`);
+      .set('Authorization', `${token}`);
 
     expect(res.statusCode).toBe(200);
   });
@@ -25,7 +25,7 @@ describe('Giftcard Routes', () => {
   it('debería devolver una lista (vacía o no)', async () => {
     const res = await request
       .get('/api/giftcards')
-      .set('Authorization', `Bearer ${token}`);
+      .set('Authorization', `${token}`);
 
     expect(Array.isArray(res.body)).toBe(true);
   });

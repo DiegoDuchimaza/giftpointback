@@ -3,6 +3,8 @@ const router = express.Router();
 const productController = require('../controllers/giftcardController');
 const authMiddleware = require('../middlewares/authMiddleware');
 
+router.get('/', authMiddleware, productController.getProducts);
+router.get('/:id', authMiddleware, productController.getProductDetail);
 router.post('/list', authMiddleware, productController.getProducts);
 router.post('/product/:id', authMiddleware, productController.getProductDetail);
 router.post('/create', authMiddleware, productController.createProduct);
